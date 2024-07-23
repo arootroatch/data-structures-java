@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static test.MeasureTimeTaken.measureTimeTaken;
+import static test.MeasureTimeTaken.*;
 
 class MyArrayListTest {
     MyArrayList array;
@@ -106,30 +106,4 @@ class MyArrayListTest {
         measureTimeTaken("Adding 1000 elements to middle (static index)", () -> add1000ToMiddleStatic(array));
         measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(array));
     }
-
-    void add1000ToEnd(MyArrayList arr) {
-        for (int i = 0; i < 1000; i++) {
-            arr.add(i);
-        }
-    }
-
-    void add1000ToMiddleInc(MyArrayList arr) {
-        int index = 5;
-        for (int i = 0; i < 1000; i++) {
-            arr.add(i, index);
-        }
-    }
-
-    void add1000ToMiddleStatic(MyArrayList arr) {
-        for (int i = 0; i < 1000; i++) {
-            arr.add(i, 5);
-        }
-    }
-
-    void add1000ToBeginning(MyArrayList arr) {
-        for (int i = 0; i < 1000; i++) {
-            arr.add(i, 0);
-        }
-    }
-
 }

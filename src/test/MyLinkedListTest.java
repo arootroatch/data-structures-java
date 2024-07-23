@@ -2,12 +2,13 @@ package test;
 
 
 import main.MyLinkedList;
+import main.MyList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static test.MeasureTimeTaken.measureTimeTaken;
+import static test.MeasureTimeTaken.*;
 
 public class MyLinkedListTest {
     MyLinkedList list;
@@ -110,28 +111,5 @@ public class MyLinkedListTest {
         measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(list));
     }
 
-    void add1000ToEnd(MyLinkedList list) {
-        for (int i = 0; i < 1000; i++) {
-            list.add(i);
-        }
-    }
 
-    void add1000ToMiddleInc(MyLinkedList list) {
-        int index = 5;
-        for (int i = 0; i < 1000; i++) {
-            list.add(i, index);
-        }
-    }
-
-    void add1000ToMiddleStatic(MyLinkedList list) {
-        for (int i = 0; i < 1000; i++) {
-            list.add(i, 5);
-        }
-    }
-
-    void add1000ToBeginning(MyLinkedList list) {
-        for (int i = 0; i < 1000; i++) {
-            list.add(i, 0);
-        }
-    }
 }
