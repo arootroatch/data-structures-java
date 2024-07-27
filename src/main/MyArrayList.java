@@ -1,10 +1,10 @@
 package main;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Objects;
 
 public class MyArrayList implements MyList<Integer> {
-
     private Object[] array;
     private int size;
 

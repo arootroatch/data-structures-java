@@ -2,7 +2,6 @@ package test;
 
 
 import main.MyLinkedList;
-import main.MyList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -110,6 +109,4 @@ public class MyLinkedListTest {
         measureTimeTaken("Adding 1000 elements to middle (static index)", () -> add1000ToMiddleStatic(list));
         measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(list));
     }
-
-
 }
