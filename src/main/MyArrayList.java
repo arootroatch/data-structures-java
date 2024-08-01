@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Objects;
 
 public class MyArrayList implements MyList<Integer> {
@@ -45,7 +44,11 @@ public class MyArrayList implements MyList<Integer> {
     }
 
     public void remove(int index) {
-        System.arraycopy(array, index + 1, array, index, size - 1);
+        if (index == size - 1) {
+            System.arraycopy(array, 0, array, 0, size - 1);
+        }
+        else
+            System.arraycopy(array, index + 1, array, index, size - (index + 1));
         size--;
     }
 
