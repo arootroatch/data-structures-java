@@ -1,7 +1,7 @@
 package main;
 
-public class Sort {
-  public static MyList<Integer> bubble(MyList<Integer> list) {
+public class BubbleSort {
+  public static MyList<Integer> sort(MyList<Integer> list) {
     boolean swapped;
     MyList<Integer> temp = list;
 
@@ -36,4 +36,5 @@ public class Sort {
       return sorted;
     } else return temp;
   }
+
 }

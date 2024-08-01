@@ -78,7 +78,7 @@ class MyArrayListTest {
   }
 
   @Test
-  void remove() {
+  void removeOne() {
     array.add(1);
     assertEquals(1, array.get(0));
     assertEquals(1, array.size());
@@ -124,7 +124,25 @@ class MyArrayListTest {
 
   }
 
-  // [0 1 2 3 4 5 6 7 8 9]
+  @Test
+  void removeFirst() {
+    for (int i = 0; i < 10; i++) {
+      array.add(i);
+    }
+    array.remove(0);
+    assertEquals(9, array.size());
+    assertEquals(1, array.get(0));
+    assertEquals(2, array.get(1));
+    assertEquals(3, array.get(2));
+    assertEquals(4, array.get(3));
+    assertEquals(5, array.get(4));
+    assertEquals(6, array.get(5));
+    assertEquals(7, array.get(6));
+    assertEquals(8, array.get(7));
+    assertEquals(9, array.get(8));
+
+  }
+
 
   @Test
   void removeThrowsException() {
