@@ -1,4 +1,4 @@
-package test;
+package mainTest;
 
 import main.MyArrayList;
 import main.MyLinkedList;
@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static test.MeasureTimeTaken.*;
+import static utils.Add.addNDec;
+import static utils.Add.addNRandom;
+import static utils.MeasureTimeTaken.*;
 
 public class BubbleSortTest {
   MyList<Integer> arr;
@@ -30,8 +32,6 @@ public class BubbleSortTest {
   void emptyArr() {
     assertEquals(arr, BubbleSort.sort(arr));
     ArrayList<Integer> test = new ArrayList<>();
-
-    System.out.println(test);
   }
 
   @Test
@@ -43,7 +43,6 @@ public class BubbleSortTest {
   void arrOne() {
     arr.add(5);
     assertEquals(arr, BubbleSort.sort(arr));
-    System.out.println(arr.get(0));
   }
 
   @Test
@@ -196,14 +195,14 @@ public class BubbleSortTest {
     assertEquals(10, listResult.size());
   }
 
-  @Test
+//  @Test
   void measureTimeArr() {
     addNRandom(arr, 10000);
     measureTimeTaken("Sorting an array of 10,000 random numbers", () -> BubbleSort.sort(arr));
     // 20 secs
   }
 
-  @Test
+//  @Test
   void measureTimeList() {
     addNRandom(list, 10000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> BubbleSort.sort(list));

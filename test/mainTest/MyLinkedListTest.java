@@ -1,4 +1,4 @@
-package test;
+package mainTest;
 
 
 import main.MyLinkedList;
@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static test.MeasureTimeTaken.*;
+import static utils.Add.*;
+import static utils.MeasureTimeTaken.*;
 
 public class MyLinkedListTest {
     MyLinkedList list;

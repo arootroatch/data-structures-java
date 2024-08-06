@@ -1,4 +1,4 @@
-package test;
+package mainTest;
 
 import main.MyArrayList;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static test.MeasureTimeTaken.*;
+import static utils.Add.*;
+import static utils.MeasureTimeTaken.*;
 
 class MyArrayListTest {
   MyArrayList array;

@@ -1,16 +1,11 @@
 package main;
 
+import static utils.Convert.convertToList;
+
 public class MergeSort {
   public static MyList<Integer> sort(MyList<Integer> list) {
     MyList<Integer> sorted = mergeSort(list);
-
-    if (list instanceof MyLinkedList){
-      MyLinkedList sortedList = new MyLinkedList();
-      for (int i = 0; i < sorted.size(); i++){
-        sortedList.add(i);
-      }
-      return sortedList;
-    } else return sorted;
+    return convertToList(list, sorted);
   }
 
   static MyList<Integer> mergeSort(MyList<Integer> list) {
@@ -65,12 +60,5 @@ public class MergeSort {
     }
 
     return sorted;
-  }
-
-  static void printArray(MyList<Integer> arr) {
-    int n = arr.size();
-    for (int i = 0; i < n; ++i)
-      System.out.print(arr.get(i) + " ");
-    System.out.println();
   }
 }

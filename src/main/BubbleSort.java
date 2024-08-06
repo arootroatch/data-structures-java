@@ -1,19 +1,19 @@
 package main;
 
+import static utils.Convert.convertToArray;
+import static utils.Convert.convertToList;
+
 public class BubbleSort {
+
   public static MyList<Integer> sort(MyList<Integer> list) {
-    boolean swapped;
-    MyList<Integer> temp = list;
-
     if (list.size() < 2) return list;
+    MyList<Integer> temp = convertToArray(list);
+    bubbleSort(temp);
+    return convertToList(list, temp);
+  }
 
-    if (list instanceof MyLinkedList) {
-      temp = new MyArrayList();
-      for (int i = 0; i < list.size(); i++) {
-        temp.add(list.get(i));
-      }
-    }
-
+  private static void bubbleSort(MyList<Integer> temp) {
+    boolean swapped;
     do {
       int start = 0;
       swapped = false;
@@ -26,15 +26,5 @@ public class BubbleSort {
         }
       }
     } while (swapped);
-
-
-    if (list instanceof MyLinkedList) {
-      MyLinkedList sorted = new MyLinkedList();
-      for (int i = 0; i < temp.size(); i++) {
-        sorted.add(temp.get(i));
-      }
-      return sorted;
-    } else return temp;
   }
-
 }

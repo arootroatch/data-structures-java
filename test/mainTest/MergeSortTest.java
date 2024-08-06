@@ -1,4 +1,4 @@
-package test;
+package mainTest;
 
 import main.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 
 import static main.MergeSort.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static test.MeasureTimeTaken.*;
+import static utils.Add.addNDec;
+import static utils.Add.addNRandom;
+import static utils.MeasureTimeTaken.*;
 
 public class MergeSortTest {
   MyList<Integer> arr;
