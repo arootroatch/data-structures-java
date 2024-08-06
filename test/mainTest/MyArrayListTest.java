@@ -4,17 +4,18 @@ import main.MyArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static utils.Add.*;
 import static utils.MeasureTimeTaken.*;
 
 class MyArrayListTest {
   MyArrayList array;
+  MyArrayList arrayTwo;
 
   @BeforeEach
   void setup() {
     array = new MyArrayList();
+    arrayTwo = new MyArrayList();
   }
 
   @Test
@@ -90,9 +91,7 @@ class MyArrayListTest {
 
   @Test
   void removeLast() {
-    for (int i = 0; i < 10; i++) {
-      array.add(i);
-    }
+    addNInc(array, 10);
     array.remove(9);
     assertEquals(9, array.size());
     assertEquals(0, array.get(0));
@@ -108,9 +107,7 @@ class MyArrayListTest {
 
   @Test
   void removeMiddle() {
-    for (int i = 0; i < 10; i++) {
-      array.add(i);
-    }
+    addNInc(array, 10);
     array.remove(1);
     assertEquals(9, array.size());
     assertEquals(0, array.get(0));
@@ -127,9 +124,8 @@ class MyArrayListTest {
 
   @Test
   void removeFirst() {
-    for (int i = 0; i < 10; i++) {
-      array.add(i);
-    }
+    addNInc(array, 10);
+    System.out.print(array);
     array.remove(0);
     assertEquals(9, array.size());
     assertEquals(1, array.get(0));
@@ -141,7 +137,6 @@ class MyArrayListTest {
     assertEquals(7, array.get(6));
     assertEquals(8, array.get(7));
     assertEquals(9, array.get(8));
-
   }
 
 
@@ -163,5 +158,12 @@ class MyArrayListTest {
     measureTimeTaken("Adding 1000 elements to middle (incrementing index)", () -> add1000ToMiddleInc(array));
     measureTimeTaken("Adding 1000 elements to middle (static index)", () -> add1000ToMiddleStatic(array));
     measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(array));
+  }
+
+  @Test
+  void equality(){
+    addNDec(array, 10);
+    addNDec(arrayTwo, 10);
+    assertTrue(array.equals(arrayTwo));
   }
 }

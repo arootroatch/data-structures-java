@@ -55,4 +55,32 @@ public class MyArrayList implements MyList<Integer> {
     Objects.checkIndex(index, size);
     return (int) array[index];
   }
+
+  public String toString() {
+    if (size == 0) return "[ ]";
+
+    String str = "[ ";
+    for (Object o : array) {
+      str = str.concat(o.toString().concat(" "));
+    }
+    str = str.concat("]");
+    return str;
+  }
+
+ public boolean equals(MyArrayList arr){
+    boolean equals = true;
+    if (arr.size() != size){
+      equals = false;
+    }
+
+    for (int i = 0; i < size; i++){
+      int n = (int) array[i];
+      if (n != arr.get(i)){
+        equals = false;
+        break;
+      }
+    }
+    return equals;
+  }
+
 }
