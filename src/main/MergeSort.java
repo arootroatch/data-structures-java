@@ -8,34 +8,17 @@ public class MergeSort {
     return convertToList(list, sorted);
   }
 
-  static MyList<Integer> mergeSort(MyList<Integer> list) {
+  private static MyList<Integer> mergeSort(MyList<Integer> list) {
     if (list.size() < 2) return list;
 
-    if (list.size() == 2) {
-      if (list.get(0) > list.get(1)) {
-        int elem = list.get(1);
-        list.remove(1);
-        list.add(elem, 0);
-      }
-      return list;
-    }
-
     int m = list.size() / 2;
-    MyArrayList left = new MyArrayList();
-    MyArrayList right = new MyArrayList();
-
-    for (int i = 0; i < m; i++) {
-      left.add(list.get(i));
-    }
-
-    for (int i = m; i < list.size(); i++) {
-      right.add(list.get(i));
-    }
+    MyArrayList left = partition(list, 0, m);
+    MyArrayList right = partition(list, m, list.size());
 
     return merge(mergeSort(left), mergeSort(right));
   }
 
-  static MyArrayList merge(MyList<Integer> left, MyList<Integer> right) {
+  private static MyArrayList merge(MyList<Integer> left, MyList<Integer> right) {
     MyArrayList sorted = new MyArrayList();
     int totalSize = left.size() + right.size();
 
@@ -60,5 +43,13 @@ public class MergeSort {
     }
 
     return sorted;
+  }
+
+  private static MyArrayList partition(MyList<Integer> list, int start, int end){
+    MyArrayList temp = new MyArrayList();
+    for (int i = start; i < end; i++) {
+      temp.add(list.get(i));
+    }
+    return temp;
   }
 }

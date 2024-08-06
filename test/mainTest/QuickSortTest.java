@@ -1,16 +1,19 @@
 package mainTest;
 
-import main.*;
+import main.MyArrayList;
+import main.MyLinkedList;
+import main.MyList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static main.MergeSort.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static main.QuickSort.sort;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static utils.Add.addNDec;
 import static utils.Add.addNRandom;
-import static utils.MeasureTimeTaken.*;
+import static utils.MeasureTimeTaken.measureTimeTaken;
 
-public class MergeSortTest {
+public class QuickSortTest {
   MyList<Integer> arr;
   MyList<Integer> arrResult;
   MyList<Integer> list;
@@ -80,6 +83,7 @@ public class MergeSortTest {
     assertEquals(2, arrResult.get(2));
   }
 
+
   @Test
   void listThree() {
     addNDec(list, 3);
@@ -129,13 +133,13 @@ public class MergeSortTest {
   void measureTimeArr() {
     addNRandom(arr, 10000);
     measureTimeTaken("Sorting an array of 10,000 random numbers", () -> sort(arr));
-    // 170 - 559ms
+    // 92 - 400  ms
   }
 
   @Test
   void measureTimeList() {
     addNRandom(list, 10000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> sort(list));
-    // 275 - 634ms
+    // 383 - 663 ms
   }
 }

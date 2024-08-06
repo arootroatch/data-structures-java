@@ -195,11 +195,11 @@ public class BubbleSortTest {
     assertEquals(10, listResult.size());
   }
 
-//  @Test
+  @Test
   void measureTimeArr() {
     addNRandom(arr, 10000);
     measureTimeTaken("Sorting an array of 10,000 random numbers", () -> BubbleSort.sort(arr));
-    // 20 secs
+    // 20 - 24 secs
   }
 
 //  @Test
