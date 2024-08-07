@@ -33,6 +33,8 @@ public class MyArrayList implements MyList<Integer> {
 
   private void growIfFull() {
     int oldCapacity = array.length;
+// TODO - increase capacity by more than 1.
+
     if (size == oldCapacity) {
       int newCapacity = oldCapacity + 1;
       array = Arrays.copyOf(array, newCapacity);

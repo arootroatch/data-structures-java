@@ -125,7 +125,6 @@ class MyArrayListTest {
   @Test
   void removeFirst() {
     addNInc(array, 10);
-    System.out.print(array);
     array.remove(0);
     assertEquals(9, array.size());
     assertEquals(1, array.get(0));

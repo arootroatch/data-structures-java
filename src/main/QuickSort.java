@@ -2,6 +2,7 @@ package main;
 
 import static utils.Convert.convertToList;
 
+// TODO - Use only the MyList interface
 public class QuickSort {
   public static MyList<Integer> sort(MyList<Integer> list) {
     if (list.size() < 2) return list;

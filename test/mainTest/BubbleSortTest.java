@@ -202,7 +202,7 @@ public class BubbleSortTest {
     // 20 - 24 secs
   }
 
-//  @Test
+  @Test
   void measureTimeList() {
     addNRandom(list, 10000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> BubbleSort.sort(list));

@@ -2,6 +2,7 @@ package main;
 
 import static utils.Convert.convertToList;
 
+// TODO - Use only the MyList interface
 public class MergeSort {
   public static MyList<Integer> sort(MyList<Integer> list) {
     MyList<Integer> sorted = mergeSort(list);

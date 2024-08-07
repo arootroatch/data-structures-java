@@ -3,6 +3,7 @@ package main;
 import static utils.Convert.convertToArray;
 import static utils.Convert.convertToList;
 
+// TODO - Use only the MyList interface
 public class BubbleSort {
 
   public static MyList<Integer> sort(MyList<Integer> list) {
