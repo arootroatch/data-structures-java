@@ -15,10 +15,10 @@ import static utils.Add.addNRandom;
 import static utils.MeasureTimeTaken.*;
 
 public class BubbleSortTest {
-  MyList<Integer> arr;
-  MyList<Integer> arrResult;
-  MyList<Integer> list;
-  MyList<Integer> listResult;
+  MyList arr;
+  MyList arrResult;
+  MyList list;
+  MyList listResult;
 
   @BeforeEach
   void setup() {
@@ -204,8 +204,8 @@ public class BubbleSortTest {
 
   @Test
   void measureTimeList() {
-    addNRandom(list, 10000);
-    measureTimeTaken("Sorting a list of 10,000 random numbers", () -> BubbleSort.sort(list));
+    addNRandom(list, 2000);
+    measureTimeTaken("Sorting a list of 2,000 random numbers", () -> BubbleSort.sort(list));
     // Before arr conversion
     // 1000 = 2994ms 3secs
     // 2000 = 24 secs

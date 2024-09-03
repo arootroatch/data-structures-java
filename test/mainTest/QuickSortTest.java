@@ -14,10 +14,10 @@ import static utils.Add.addNRandom;
 import static utils.MeasureTimeTaken.measureTimeTaken;
 
 public class QuickSortTest {
-  MyList<Integer> arr;
-  MyList<Integer> arrResult;
-  MyList<Integer> list;
-  MyList<Integer> listResult;
+  MyList arr;
+  MyList arrResult;
+  MyList list;
+  MyList listResult;
 
   @BeforeEach
   void setup() {

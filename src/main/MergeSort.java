@@ -1,26 +1,25 @@
 package main;
 
-import static utils.Convert.convertToList;
-
 // TODO - Use only the MyList interface
 public class MergeSort {
-  public static MyList<Integer> sort(MyList<Integer> list) {
-    MyList<Integer> sorted = mergeSort(list);
-    return convertToList(list, sorted);
+  public static MyList sort(MyList list) {
+    return mergeSort(list);
   }
 
-  private static MyList<Integer> mergeSort(MyList<Integer> list) {
+  private static MyList mergeSort(MyList list) {
     if (list.size() < 2) return list;
 
     int m = list.size() / 2;
-    MyArrayList left = partition(list, 0, m);
-    MyArrayList right = partition(list, m, list.size());
+//    MyList left = partition(list, 0, m);
+//    MyList right = partition(list, m, list.size());
 
-    return merge(mergeSort(left), mergeSort(right));
+    return list;
+
+//    return merge(mergeSort(left), mergeSort(right));
   }
 
-  private static MyArrayList merge(MyList<Integer> left, MyList<Integer> right) {
-    MyArrayList sorted = new MyArrayList();
+  private static MyList merge(MyList left, MyList right) {
+    MyList sorted = new MyArrayList();
     int totalSize = left.size() + right.size();
 
     while (sorted.size() < totalSize) {
@@ -46,11 +45,4 @@ public class MergeSort {
     return sorted;
   }
 
-  private static MyArrayList partition(MyList<Integer> list, int start, int end){
-    MyArrayList temp = new MyArrayList();
-    for (int i = start; i < end; i++) {
-      temp.add(list.get(i));
-    }
-    return temp;
-  }
 }

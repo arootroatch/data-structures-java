@@ -11,10 +11,10 @@ import static utils.Add.addNRandom;
 import static utils.MeasureTimeTaken.*;
 
 public class MergeSortTest {
-  MyList<Integer> arr;
-  MyList<Integer> arrResult;
-  MyList<Integer> list;
-  MyList<Integer> listResult;
+  MyList arr;
+  MyList arrResult;
+  MyList list;
+  MyList listResult;
 
   @BeforeEach
   void setup() {

@@ -4,13 +4,13 @@ import static utils.Convert.convertToList;
 
 // TODO - Use only the MyList interface
 public class QuickSort {
-  public static MyList<Integer> sort(MyList<Integer> list) {
+  public static MyList sort(MyList list) {
     if (list.size() < 2) return list;
     MyArrayList sorted = quickSort(list);
     return convertToList(list, sorted);
   }
 
-  private static MyArrayList quickSort(MyList<Integer> list){
+  private static MyArrayList quickSort(MyList list){
     int m = list.size() / 2, pivot = list.get(m);
     MyArrayList less = new MyArrayList();
     MyArrayList greater = new MyArrayList();
@@ -19,7 +19,7 @@ public class QuickSort {
     return join(sort(less), pivot, sort(greater));
   }
 
-  private static void partition(MyList<Integer> list, MyArrayList less, int pivot, MyArrayList greater){
+  private static void partition(MyList list, MyArrayList less, int pivot, MyArrayList greater){
     for (int i = 0; i < list.size(); i++) {
       if (list.get(i) < pivot)
         less.add(list.get(i));
@@ -28,7 +28,7 @@ public class QuickSort {
     }
   }
 
-  private static MyArrayList join(MyList<Integer> less, int pivot, MyList<Integer> greater) {
+  private static MyArrayList join(MyList less, int pivot, MyList greater) {
     MyArrayList joined = new MyArrayList();
     for (int i = 0; i < less.size(); i++) {
       joined.add(less.get(i));

@@ -151,6 +151,7 @@ class MyArrayListTest {
     assertEquals(1, array.get(0));
   }
 
+
   @Test
   void timeAddingElements() {
     measureTimeTaken("Adding 1000 elements to end", () -> add1000ToEnd(array));

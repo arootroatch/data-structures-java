@@ -3,7 +3,7 @@ package main;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyArrayList implements MyList<Integer> {
+public class MyArrayList implements MyList {
   private Object[] array;
   private int size;
 
@@ -58,6 +58,14 @@ public class MyArrayList implements MyList<Integer> {
     return (int) array[index];
   }
 
+  public MyArrayList[] partition() {
+    MyArrayList[] temp = new MyArrayList[2];
+//    for (int i = start; i < end; i++) {
+//      temp.add(this.get(i));
+//    }
+    return temp;
+  }
+
   public String toString() {
     if (size == 0) return "[ ]";
 
@@ -69,15 +77,12 @@ public class MyArrayList implements MyList<Integer> {
     return str;
   }
 
- public boolean equals(MyArrayList arr){
-    boolean equals = true;
-    if (arr.size() != size){
-      equals = false;
-    }
+  public boolean equals(MyArrayList arr) {
+    boolean equals = arr.size() == size;
 
-    for (int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++) {
       int n = (int) array[i];
-      if (n != arr.get(i)){
+      if (n != arr.get(i)) {
         equals = false;
         break;
       }

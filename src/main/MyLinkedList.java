@@ -1,6 +1,6 @@
 package main;
 
-public class MyLinkedList implements MyList<Integer> {
+public class MyLinkedList implements MyList {
   int size = 0;
   Node<Integer> first;
   Node<Integer> last;
@@ -29,8 +29,6 @@ public class MyLinkedList implements MyList<Integer> {
       else prev.next = newNode;
       size++;
     }
-
-
   }
 
   public int size() {
@@ -61,6 +59,30 @@ public class MyLinkedList implements MyList<Integer> {
   public int get(int index) {
     checkIndex(index);
     return node(index).item;
+  }
+
+  public MyLinkedList[] partition() {
+    MyLinkedList[] partitions = new MyLinkedList[2];
+    MyLinkedList left = new MyLinkedList();
+    MyLinkedList right = new MyLinkedList();
+
+    int m = this.size / 2;
+    Node<Integer> leftTail = node(m - 1);
+    Node<Integer> rightHead = leftTail.next;
+    leftTail.next = null;
+    rightHead.prev = null;
+
+    left.first = this.first;
+    left.last = leftTail;
+    left.size = m;
+    right.first = rightHead;
+    right.last = this.last;
+    right.size = this.size - m;
+
+    partitions[0] = left;
+    partitions[1] = right;
+
+    return partitions;
   }
 
   private static class Node<Integer> {

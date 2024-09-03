@@ -1,7 +1,6 @@
 package main;
-import java.net.ServerSocket;
 
-public interface MyList<Integer> {
+public interface MyList {
   void add(int i);
 
   void add(int i, int index);
@@ -11,6 +10,8 @@ public interface MyList<Integer> {
   void remove(int index);
 
   int get(int index);
+
+  MyList[] partition();
 }
 
 // TODO - Add partition
