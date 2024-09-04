@@ -172,10 +172,10 @@ class MyArrayListTest {
 
   @Test
   void timeAddingElements() {
-    measureTimeTaken("Adding 1000 elements to end", () -> add1000ToEnd(array));
-    measureTimeTaken("Adding 1000 elements to middle (incrementing index)", () -> add1000ToMiddleInc(array));
-    measureTimeTaken("Adding 1000 elements to middle (static index)", () -> add1000ToMiddleStatic(array));
-    measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(array));
+    measureTimeTaken("Adding 1000 elements to end", () -> add1000ToEnd(array)); // 2.2 ms before capacity increase
+    measureTimeTaken("Adding 1000 elements to middle (incrementing index)", () -> add1000ToMiddleInc(array)); // 3.8ms
+    measureTimeTaken("Adding 1000 elements to middle (static index)", () -> add1000ToMiddleStatic(array)); // 5.9 ms
+    measureTimeTaken("Adding 1000 elements to beginning", () -> add1000ToBeginning(array)); // 1.7ms
   }
 
   @Test
