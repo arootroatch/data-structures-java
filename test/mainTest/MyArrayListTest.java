@@ -1,13 +1,12 @@
 package mainTest;
 
 import main.MyArrayList;
-import main.MyLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static utils.Add.*;
-import static utils.MeasureTimeTaken.*;
+import static utils.MeasureTimeTaken.measureTimeTaken;
 
 class MyArrayListTest {
   MyArrayList array;
@@ -179,7 +178,7 @@ class MyArrayListTest {
   }
 
   @Test
-  void equality(){
+  void equality() {
     addNDec(array, 10);
     addNDec(arrayTwo, 10);
     assertTrue(array.equals(arrayTwo));

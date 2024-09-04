@@ -6,6 +6,9 @@ import main.MyList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
+import java.util.LinkedList;
+
 import static main.QuickSort.sort;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -139,9 +142,18 @@ public class QuickSortTest {
 
   @Test
   void measureTimeList() {
-    addNRandom(list, 10000);
+    addNRandom(list, 100000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> sort(list));
     // 383 - 663 ms
     // ~20ms after changing for loop to only look at first element
+  }
+
+  @Test
+  void measureJavaSort(){
+    LinkedList<Integer> list = new LinkedList<>();
+    for (int i = 0; i < 100000; i++){
+      list.add((int) Math.floor(Math.random() * 100000));
+    }
+    measureTimeTaken("Java sorting ", () -> Collections.sort(list));
   }
 }
