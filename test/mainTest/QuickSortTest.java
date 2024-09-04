@@ -134,6 +134,7 @@ public class QuickSortTest {
     addNRandom(arr, 10000);
     measureTimeTaken("Sorting an array of 10,000 random numbers", () -> sort(arr));
     // 92 - 400  ms
+    //~20 ms
   }
 
   @Test
@@ -141,5 +142,6 @@ public class QuickSortTest {
     addNRandom(list, 10000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> sort(list));
     // 383 - 663 ms
+    // ~20ms after changing for loop to only look at first element
   }
 }

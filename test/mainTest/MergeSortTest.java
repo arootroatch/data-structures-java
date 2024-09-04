@@ -130,6 +130,7 @@ public class MergeSortTest {
     addNRandom(arr, 10000);
     measureTimeTaken("Sorting an array of 10,000 random numbers", () -> sort(arr));
     // 170 - 559ms
+    // ~ 30ms
   }
 
   @Test
@@ -137,5 +138,6 @@ public class MergeSortTest {
     addNRandom(list, 10000);
     measureTimeTaken("Sorting a list of 10,000 random numbers", () -> sort(list));
     // 275 - 634ms
+    // ~ 20 ms
   }
 }

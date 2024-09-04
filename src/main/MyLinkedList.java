@@ -85,7 +85,7 @@ public class MyLinkedList implements MyList {
     return partitions;
   }
 
-  private static class Node<Integer> {
+  public static class Node<Integer> {
     Integer item;
     Node<Integer> next;
     Node<Integer> prev;
@@ -95,6 +95,19 @@ public class MyLinkedList implements MyList {
       this.next = next;
       this.prev = prev;
     }
+  }
+
+  public String toString() {
+    if (size == 0) return "[ ]";
+
+    String str = "[ ";
+    Node<Integer> x = first;
+    for (int i = 0; i < size; i++){
+      str = str.concat(String.valueOf(x.item)).concat(" ");
+      x = x.next;
+    }
+    str = str.concat("]");
+    return str;
   }
 
   private Node<Integer> node(int index) {

@@ -34,7 +34,7 @@ public class MyArrayList implements MyList {
   private void growIfFull() {
     int oldCapacity = array.length;
     if (size == oldCapacity) {
-      int newCapacity = oldCapacity + (oldCapacity / 2);
+      int newCapacity = oldCapacity == 1 ? 5 : oldCapacity + (oldCapacity / 2);
       array = Arrays.copyOf(array, newCapacity);
     }
   }
