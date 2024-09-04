@@ -1,6 +1,7 @@
 package mainTest;
 
 import main.MyArrayList;
+import main.MyLinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -149,6 +150,23 @@ class MyArrayListTest {
     assertThrows(IndexOutOfBoundsException.class, () -> array.get(0));
     array.add(1);
     assertEquals(1, array.get(0));
+  }
+
+  @Test
+  void partition() {
+    addNInc(array, 10);
+    MyArrayList[] parted = array.partition();
+
+    assertEquals(0, parted[0].get(0));
+    assertEquals(1, parted[0].get(1));
+    assertEquals(2, parted[0].get(2));
+    assertEquals(3, parted[0].get(3));
+    assertEquals(4, parted[0].get(4));
+    assertEquals(5, parted[1].get(0));
+    assertEquals(6, parted[1].get(1));
+    assertEquals(7, parted[1].get(2));
+    assertEquals(8, parted[1].get(3));
+    assertEquals(9, parted[1].get(4));
   }
 
 

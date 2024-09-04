@@ -33,10 +33,8 @@ public class MyArrayList implements MyList {
 
   private void growIfFull() {
     int oldCapacity = array.length;
-// TODO - increase capacity by more than 1.
-
     if (size == oldCapacity) {
-      int newCapacity = oldCapacity + 1;
+      int newCapacity = oldCapacity + (oldCapacity / 2);
       array = Arrays.copyOf(array, newCapacity);
     }
   }
@@ -60,9 +58,20 @@ public class MyArrayList implements MyList {
 
   public MyArrayList[] partition() {
     MyArrayList[] temp = new MyArrayList[2];
-//    for (int i = start; i < end; i++) {
-//      temp.add(this.get(i));
-//    }
+    MyArrayList left = new MyArrayList();
+    MyArrayList right = new MyArrayList();
+    int m = this.size / 2;
+
+    for (int i = 0; i < m; i++) {
+      left.add(this.get(i));
+    }
+    for (int i = m; i < this.size; i++) {
+      right.add(this.get(i));
+    }
+
+    temp[0] = left;
+    temp[1] = right;
+
     return temp;
   }
 

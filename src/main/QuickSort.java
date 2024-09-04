@@ -2,24 +2,29 @@ package main;
 
 import static utils.Convert.convertToList;
 
-// TODO - Use only the MyList interface
 public class QuickSort {
   public static MyList sort(MyList list) {
     if (list.size() < 2) return list;
-    MyArrayList sorted = quickSort(list);
+    MyList sorted = quickSort(list);
     return convertToList(list, sorted);
   }
 
-  private static MyArrayList quickSort(MyList list){
+  private static MyList quickSort(MyList list){
     int m = list.size() / 2, pivot = list.get(m);
-    MyArrayList less = new MyArrayList();
-    MyArrayList greater = new MyArrayList();
+    MyList less = newList(list);
+    MyList greater = newList(list);
 
     partition(list, less, pivot, greater);
     return join(sort(less), pivot, sort(greater));
   }
 
-  private static void partition(MyList list, MyArrayList less, int pivot, MyArrayList greater){
+  private static MyList newList(MyList list){
+    if (list instanceof MyLinkedList)
+      return new MyLinkedList();
+    else return new MyArrayList();
+  }
+
+  private static void partition(MyList list, MyList less, int pivot, MyList greater){
     for (int i = 0; i < list.size(); i++) {
       if (list.get(i) < pivot)
         less.add(list.get(i));
@@ -28,8 +33,10 @@ public class QuickSort {
     }
   }
 
-  private static MyArrayList join(MyList less, int pivot, MyList greater) {
-    MyArrayList joined = new MyArrayList();
+  private static MyList join(MyList less, int pivot, MyList greater) {
+    // TODO add joining for lists
+
+    MyList joined = newList(less);
     for (int i = 0; i < less.size(); i++) {
       joined.add(less.get(i));
     }

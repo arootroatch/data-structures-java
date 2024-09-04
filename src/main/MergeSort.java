@@ -1,6 +1,5 @@
 package main;
 
-// TODO - Use only the MyList interface
 public class MergeSort {
   public static MyList sort(MyList list) {
     return mergeSort(list);
@@ -9,17 +8,14 @@ public class MergeSort {
   private static MyList mergeSort(MyList list) {
     if (list.size() < 2) return list;
 
-    int m = list.size() / 2;
-//    MyList left = partition(list, 0, m);
-//    MyList right = partition(list, m, list.size());
-
-    return list;
-
-//    return merge(mergeSort(left), mergeSort(right));
+    MyList[] parted = list.partition();
+    MyList left = parted[0];
+    MyList right = parted[1];
+    return merge(mergeSort(left), mergeSort(right));
   }
 
   private static MyList merge(MyList left, MyList right) {
-    MyList sorted = new MyArrayList();
+    MyList sorted = newList(left);
     int totalSize = left.size() + right.size();
 
     while (sorted.size() < totalSize) {
@@ -41,8 +37,12 @@ public class MergeSort {
         right.remove(0);
       }
     }
-
     return sorted;
   }
 
+  private static MyList newList(MyList list){
+    if (list instanceof MyLinkedList)
+      return new MyLinkedList();
+    else return new MyArrayList();
+  }
 }

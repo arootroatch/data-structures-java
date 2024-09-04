@@ -13,5 +13,3 @@ public interface MyList {
 
   MyList[] partition();
 }
-
-// TODO - Add partition
